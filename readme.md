@@ -40,19 +40,23 @@
 
 * 게임 시작페이지
 
-**![시작화면 이미지](readme images/게임 시작화면.png)**
+<img width="365" alt="게임 시작화면" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/cfc6f9af-05bf-4aac-8a80-d09f18d8f213">
+
 
 * 인게임 화면
 
-![인게임 메인 이미지](readme images/ingame main.png)
+![ingame_stage](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/41fcac90-a94e-4ef4-a426-202d2c5f1531)
+
 
 * 내 영웅 보기 및 내 영웅 관리
 
+![Item Equip](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/e95229d9-ea88-4b04-91dc-9733300611cf)
 
 
 * 상점
 
- 
+ ![Shop](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/538efcbd-0e05-4af6-ab64-ac075168b5fa)
+
 
 
 
