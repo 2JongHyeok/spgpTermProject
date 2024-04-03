@@ -45,17 +45,17 @@
 
 * 인게임 화면
 
-![ingame_stage](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/41fcac90-a94e-4ef4-a426-202d2c5f1531)
+<img width="365" alt="인게임 화면" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/41fcac90-a94e-4ef4-a426-202d2c5f1531">
 
 
 * 내 영웅 보기 및 내 영웅 관리
 
-![Item Equip](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/e95229d9-ea88-4b04-91dc-9733300611cf)
+<img width="365" alt="내 영웅 관리" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/e95229d9-ea88-4b04-91dc-9733300611cf">
 
 
 * 상점
 
- ![Shop](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/538efcbd-0e05-4af6-ab64-ac075168b5fa)
+<img width="365" alt="상점" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/538efcbd-0e05-4af6-ab64-ac075168b5fa">
 
 
 
