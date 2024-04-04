@@ -30,7 +30,7 @@
 
 * 기본 이동
 
-  조이스틱을 사용하여 주인공 이동동
+  조이스틱을 사용하여 주인공 이동
 
 * 공격
 
@@ -45,7 +45,7 @@
 <img width="365" alt="게임 시작화면" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/cfc6f9af-05bf-4aac-8a80-d09f18d8f213">
 
 
-* 게임 메뉴 화
+* 게임 메뉴 화면
 <img width="365" alt="ingame main" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/86a830e1-3b7c-4072-a494-71b3e1ec6c66">
 
 
