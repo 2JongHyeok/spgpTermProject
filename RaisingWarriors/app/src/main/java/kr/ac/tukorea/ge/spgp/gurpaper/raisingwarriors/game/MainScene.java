@@ -2,6 +2,7 @@ package kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.game;
 
 import android.view.MotionEvent;
 
+import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.MainPage;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.R;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Score;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.VertScrollBackground;
@@ -10,7 +11,7 @@ import kr.ac.tukorea.ge.spgp.gurpaper.framework.view.Metrics;
 
 public class MainScene extends Scene {
     private static final String TAG = MainScene.class.getSimpleName();
-    private final Fighter fighter;
+    private final Warrior warrior;
     Score score; // package private
 
     public int getScore() {
@@ -27,13 +28,12 @@ public class MainScene extends Scene {
         add(Layer.controller, new EnemyGenerator());
         add(Layer.controller, new CollisionChecker(this));
 
-        //add(Layer.bg, new VertScrollBackground(R.mipmap.bg_city, 0.2f));
-        //add(Layer.bg, new VertScrollBackground(R.mipmap.clouds, 0.4f));
+       add(Layer.bg, new MainPage(R.mipmap.map_1));
 
-        this.fighter = new Fighter();
-        add(Layer.player, fighter);
+        this.warrior = new Warrior();
+        add(Layer.player, warrior);
 
-        //this.score = new Score(R.mipmap.number_24x32, Metrics.width - 0.5f, 0.5f, 0.6f);
+        this.score = new Score(R.mipmap.number_24x32, Metrics.width - 0.5f, 0.5f, 0.6f);
         score.setScore(0);
         add(Layer.ui, score);
     }
@@ -47,8 +47,8 @@ public class MainScene extends Scene {
         super.update(elapsedSeconds);
     }
 
-    @Override
-    public boolean onTouch(MotionEvent event) {
-        return fighter.onTouch(event);
-    }
+//    @Override
+//    public boolean onTouch(MotionEvent event) {
+//        return warrior.onTouch(event);
+//    }
 }

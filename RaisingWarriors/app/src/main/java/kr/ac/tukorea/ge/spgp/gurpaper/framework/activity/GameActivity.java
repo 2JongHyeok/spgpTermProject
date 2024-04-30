@@ -17,10 +17,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activity = this;
         gameView = new GameView(this);
-        //gameView.setFullScreen();
         setContentView(gameView);
-        //new MainScene().push();
-
         getOnBackPressedDispatcher().addCallback(onBackPressedCallback);
     }
 

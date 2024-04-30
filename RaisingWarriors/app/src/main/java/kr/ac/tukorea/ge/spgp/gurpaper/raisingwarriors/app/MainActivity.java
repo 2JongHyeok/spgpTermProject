@@ -33,30 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        //createAnimator();
     }
-
-//    private void createAnimator() {
-//        animator = ObjectAnimator.ofFloat(binding.treeImageView, "translationX", 0.0f, -1995f);
-//        animator.setDuration(30000);
-//        animator.setRepeatCount(ValueAnimator.INFINITE);
-//        animator.setInterpolator(new LinearInterpolator());
-//        animator.start();
-//        animator.pause();
-//    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        animator.resume();
-    }
-
-    @Override
-    protected void onPause() {
-        animator.pause();
-        super.onPause();
-    }
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {

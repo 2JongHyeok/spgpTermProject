@@ -55,8 +55,8 @@ public class Fighter extends Sprite {
         setPosition(Metrics.width / 2, Metrics.height - FIGHTER_Y_OFFSET, PLANE_WIDTH, PLANE_HEIGHT);
         setTargetX(x);
 
-        //targetBmp = BitmapPool.get(R.mipmap.fighter_target);
-        //sparkBitmap = BitmapPool.get(R.mipmap.laser_spark);
+        targetBmp = BitmapPool.get(R.mipmap.fighter_target);
+        sparkBitmap = BitmapPool.get(R.mipmap.laser_spark);
 
         srcRect = rects[5];
     }
