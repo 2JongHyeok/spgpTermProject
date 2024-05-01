@@ -9,10 +9,12 @@ import kr.ac.tukorea.ge.spgp.gurpaper.framework.scene.Scene;
 
 public class EnemyGenerator implements IGameObject {
     private static final String TAG = EnemyGenerator.class.getSimpleName();
-    public static final float GEN_INTERVAL = 5.0f;
+    public static final float GEN_INTERVAL = 2.0f;
     private final Random random = new Random();
     private float enemyTime = 0;
-    private int wave;
+
+    private int level = 1;
+    private int totlaEnemy = 0;
     @Override
     public void update(float elapsedSeconds) {
         enemyTime -= elapsedSeconds;
@@ -25,16 +27,11 @@ public class EnemyGenerator implements IGameObject {
     private void generate() {
         Scene scene = Scene.top();
         if (scene == null) return;
+        if(totlaEnemy > 300)
+            return;
+        scene.add(MainScene.Layer.enemy, Enemy.get(level, totlaEnemy));
 
-        wave++;
-        //Log.v(TAG, "Generating: wave " + wave);
-        for (int i = 0; i < 5; i++) {
-            int level = (wave + 15) / 10 - random.nextInt(3);
-            if (level < 0) level = 0;
-            if (level > Enemy.MAX_LEVEL) level = Enemy.MAX_LEVEL;
-            scene.add(MainScene.Layer.enemy, Enemy.get(level, i));
         }
-    }
 
     @Override
     public void draw(Canvas canvas) {

@@ -14,16 +14,12 @@ import kr.ac.tukorea.ge.spgp.gurpaper.framework.view.Metrics;
 
 public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
     private static final float SPEED = 3.0f;
-    private static final float RADIUS = 0.9f;
-    private static final int[] resIds = { R.mipmap.enemy_01, R.mipmap.enemy_02, R.mipmap.enemy_03, R.mipmap.enemy_04, R.mipmap.enemy_05,
-            R.mipmap.enemy_06, R.mipmap.enemy_07, R.mipmap.enemy_08, R.mipmap.enemy_09, R.mipmap.enemy_10,
-            R.mipmap.enemy_11, R.mipmap.enemy_12, R.mipmap.enemy_13, R.mipmap.enemy_14, R.mipmap.enemy_15,
-            R.mipmap.enemy_16, R.mipmap.enemy_17, R.mipmap.enemy_18, R.mipmap.enemy_19, R.mipmap.enemy_20,};
-    public static final int MAX_LEVEL = resIds.length - 1;
-    public static final float ANIM_FPS = 10.0f;
+    private static final float RADIUS = 1.0f;
+    private static final int[] resIds = { R.mipmap.zombie_1,};
+    public static final float ANIM_FPS = 5.0f;
     protected RectF collisionRect = new RectF();
     private int level;
-    private int life, maxLife;
+    private int  life, maxLife;
 
     private Enemy(int level, int index) {
         super(0, 0);
@@ -34,7 +30,7 @@ public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
     private void init(int level, int index) {
         this.level = level;
         this.life = this.maxLife = (level + 1) * 10;
-        setAnimationResource(resIds[level], ANIM_FPS);
+        setAnimationResource(resIds[0], ANIM_FPS, 9);  // [edit] 리소스 id 랜덤 값으로 변경하기
         setPosition(Metrics.width / 10 * (2 * index + 1), -RADIUS, RADIUS);
     }
 
