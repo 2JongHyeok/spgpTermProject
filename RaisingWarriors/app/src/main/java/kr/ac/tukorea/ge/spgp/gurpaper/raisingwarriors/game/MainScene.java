@@ -4,6 +4,7 @@ import android.view.MotionEvent;
 
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.JoyStick;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.MainPage;
+import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.MovingBackground;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.R;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Score;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.VertScrollBackground;
@@ -30,13 +31,14 @@ public class MainScene extends Scene {
         add(Layer.controller, new EnemyGenerator());
         add(Layer.controller, new CollisionChecker(this));
 
-       add(Layer.bg, new MainPage(R.mipmap.map_1));
 
         this.joyStick = new JoyStick(R.mipmap.joystick_bg, R.mipmap.joystick_thumb);
         joyStick.setRects(1, 15, 1, 0.3f, 0.8f);
         this.warrior = new Warrior(joyStick);
         add(Layer.player, warrior);
         add(Layer.controller, joyStick);
+
+         add(Layer.bg, new MovingBackground(R.mipmap.map_1, this.warrior));
 
         this.score = new Score(R.mipmap.number_24x32, Metrics.width - 0.5f, 0.5f, 0.6f);
         score.setScore(0);

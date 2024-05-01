@@ -12,7 +12,6 @@ import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.R;
 public class Warrior extends Sprite {
     private static final float WARRIOR_WIDTH = 1.f;
     private static final float WARRIOR_HEIGHT = WARRIOR_WIDTH * 259/181;
-    private static final float RADIUS = 1.0f;
     private static final float SPEED = 3.0f;
     private final JoyStick joyStick;
     private float angle;
@@ -22,7 +21,7 @@ public class Warrior extends Sprite {
         x = Metrics.width / 2;
         y = 2 * Metrics.height / 3;
         angle = -90;
-        setPosition(x-RADIUS, y,WARRIOR_WIDTH, WARRIOR_HEIGHT);
+        setPosition(x , Metrics.height/2  , WARRIOR_WIDTH,WARRIOR_HEIGHT);
         this.joyStick = joyStick;
     }
 
@@ -32,16 +31,17 @@ public class Warrior extends Sprite {
             float distance = SPEED * joyStick.power * elapsedSeconds;
             x += (float) (distance * Math.cos(joyStick.angle_radian));
             y += (float) (distance * Math.sin(joyStick.angle_radian));
-            dstRect.set(x - RADIUS, y - RADIUS, x + RADIUS, y + RADIUS);
+            dstRect.set(x - WARRIOR_WIDTH/2, Metrics.height/2 - WARRIOR_HEIGHT/2, x + WARRIOR_WIDTH/2, Metrics.height/2+WARRIOR_HEIGHT/2);
             angle = (float) Math.toDegrees(joyStick.angle_radian);
         }
         super.update(elapsedSeconds);
     }
     @Override
     public void draw(Canvas canvas) {
-
         super.draw(canvas);
     }
+    public float getX(){return x;}
+    public float getY(){return y;}
 }
 
 

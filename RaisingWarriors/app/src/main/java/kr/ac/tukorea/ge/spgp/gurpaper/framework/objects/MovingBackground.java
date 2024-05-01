@@ -10,12 +10,20 @@ import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.game.Warrior;
 
 public class MovingBackground extends Sprite {
     private final float height;
-    public MovingBackground(int bitmapResId) {
-        super(bitmapResId);
-        this.height = bitmap.getHeight() * Metrics.width / bitmap.getWidth();
-        setPosition(Metrics.width / 2, Metrics.height / 2, Metrics.width, height);
-    }
+    private final Warrior warrior;
+    private float pre_warrior_y;
 
+    public MovingBackground(int bitmapResId, Warrior warrior) {
+        super(bitmapResId);
+        this.warrior = warrior;
+        pre_warrior_y = warrior.y;
+        this.height = bitmap.getHeight() * Metrics.width / bitmap.getWidth();
+        setPosition(0, 0, Metrics.width, Metrics.height);
+    }
+    public void update(float elapsedSeconds) {
+        this.y += pre_warrior_y-warrior.y;
+        pre_warrior_y = warrior.y;
+    }
     @Override
     public void draw(Canvas canvas) {
         //super.draw(canvas);
@@ -27,4 +35,5 @@ public class MovingBackground extends Sprite {
             curr += height;
         }
     }
+
 }
