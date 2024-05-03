@@ -28,15 +28,14 @@ public class MainScene extends Scene {
         //Metrics.setGameSize(16, 16);
         initLayers(Layer.COUNT);
 
-        add(Layer.controller, new EnemyGenerator());
-        add(Layer.controller, new CollisionChecker(this));
-
-
         this.joyStick = new JoyStick(R.mipmap.joystick_bg, R.mipmap.joystick_thumb);
         joyStick.setRects(1, 15, 1, 0.3f, 0.8f);
-        this.warrior = new Warrior(joyStick);
+        this.warrior = Warrior.getInstance(joyStick);
         add(Layer.player, warrior);
         add(Layer.controller, joyStick);
+
+        add(Layer.controller, new EnemyGenerator());
+        add(Layer.controller, new CollisionChecker(this));
 
          add(Layer.bg, new MovingBackground(R.mipmap.map_1, this.warrior));
 

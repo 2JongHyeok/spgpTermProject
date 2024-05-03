@@ -20,6 +20,7 @@ public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
     protected RectF collisionRect = new RectF();
     private int level;
     private int  life, maxLife;
+    private Warrior warrior;
 
     private Enemy(int level, int index) {
         super(0, 0);
@@ -32,6 +33,7 @@ public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
         this.life = this.maxLife = (level + 1) * 10;
         setAnimationResource(resIds[0], ANIM_FPS, 9);  // [edit] 리소스 id 랜덤 값으로 변경하기
         setPosition(Metrics.width / 10 * (2 * index + 1), -RADIUS, RADIUS);
+        warrior = Warrior.getInstance(null);
     }
 
     public static Enemy get(int level, int index) {
@@ -44,10 +46,29 @@ public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
     }
     @Override
     public void update(float elapsedSeconds) {
-        super.update(elapsedSeconds);
-        if (dstRect.top > Metrics.height) {
-            Scene.top().remove(MainScene.Layer.enemy, this);
-        }
+//        if (dstRect.top > Metrics.height) {
+//            Scene.top().remove(MainScene.Layer.enemy, this);
+//        }
+        float distanceX = x - warrior.getX();
+        float distanceY = y - warrior.getY();
+
+        // 전체 거리
+        float distance = (float)Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+
+        // 단위 벡터 계산
+        float unitX = distanceX / distance;
+        float unitY = distanceY / distance;
+
+        // 이동할 거리 계산
+        float moveDistance = SPEED * elapsedSeconds;
+
+        // 실제 이동
+        float dx = unitX * moveDistance;
+        float dy = unitY * moveDistance;
+        x-=dx;
+        y-=dy;
+        dstRect.set(x-width/4,y-warrior.getY()-height/4+Metrics.height/2,
+                x+width/4,y-warrior.getY()+height/4+Metrics.height/2);
         collisionRect.set(dstRect);
         collisionRect.inset(0.11f, 0.11f);
     }

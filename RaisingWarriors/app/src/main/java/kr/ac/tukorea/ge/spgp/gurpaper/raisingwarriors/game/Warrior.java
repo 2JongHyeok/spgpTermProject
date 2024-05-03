@@ -14,9 +14,10 @@ public class Warrior extends Sprite {
     private static final float WARRIOR_HEIGHT = WARRIOR_WIDTH * 259/181;
     private static final float SPEED = 3.0f;
     private final JoyStick joyStick;
+    private static Warrior instance;
     private float angle;
 
-    public Warrior(JoyStick joyStick) {
+    private Warrior(JoyStick joyStick) {
         super(R.mipmap.charactor);
         x = Metrics.width / 2;
         y = 2 * Metrics.height / 3;
@@ -24,17 +25,25 @@ public class Warrior extends Sprite {
         setPosition(x , Metrics.height/2  , WARRIOR_WIDTH,WARRIOR_HEIGHT);
         this.joyStick = joyStick;
     }
+    public static synchronized Warrior getInstance(JoyStick joyStick) {
+        if (instance == null) {
+            instance = new Warrior(joyStick);
+        }
+        return instance;
+    }
 
     @Override
     public void update(float elapsedSeconds) {
         if (joyStick.power > 0) {
             float distance = SPEED * joyStick.power * elapsedSeconds;
-            x += (float) (distance * Math.cos(joyStick.angle_radian));
-            y += (float) (distance * Math.sin(joyStick.angle_radian));
+            float dx = (float) (distance * Math.cos(joyStick.angle_radian));
+            float dy = (float) (distance * Math.sin(joyStick.angle_radian));
+            if((x+dx > WARRIOR_WIDTH/2) && (x + dx < Metrics.width-WARRIOR_WIDTH/2))
+                x += dx;
+            y += dy;
             dstRect.set(x - WARRIOR_WIDTH/2, Metrics.height/2 - WARRIOR_HEIGHT/2, x + WARRIOR_WIDTH/2, Metrics.height/2+WARRIOR_HEIGHT/2);
             angle = (float) Math.toDegrees(joyStick.angle_radian);
         }
-        super.update(elapsedSeconds);
     }
     @Override
     public void draw(Canvas canvas) {
