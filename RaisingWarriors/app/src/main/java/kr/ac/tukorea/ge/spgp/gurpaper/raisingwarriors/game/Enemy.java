@@ -32,8 +32,15 @@ public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
         this.level = level;
         this.life = this.maxLife = (level + 1) * 10;
         setAnimationResource(resIds[0], ANIM_FPS, 9);  // [edit] 리소스 id 랜덤 값으로 변경하기
-        setPosition(Metrics.width / 10 * (2 * index + 1), -RADIUS, RADIUS);
-        warrior = Warrior.getInstance(null);
+        this.warrior = Warrior.getInstance(null);
+        float randomX = (float)(Math.random()*10)+10;
+        float randomY = (float)(Math.random()*10)+10;
+        if(randomX%2>1)
+            randomX = -randomX;
+        if(randomY%2>1)
+            randomY = -randomY;
+
+        setPosition(randomX+warrior.getX(), randomY+warrior.getY(),RADIUS);
     }
 
     public static Enemy get(int level, int index) {
