@@ -19,8 +19,11 @@ public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
     public static final float ANIM_FPS = 5.0f;
     protected RectF collisionRect = new RectF();
     private int level;
+
+    public int  num=0;
     private int  life, maxLife;
     private Warrior warrior;
+    private AutoTarget autoTarget;
 
     private Enemy(int level, int index) {
         super(0, 0);
@@ -30,9 +33,11 @@ public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
 
     private void init(int level, int index) {
         this.level = level;
+        this.num = index;
         this.life = this.maxLife = (level + 1) * 10;
         setAnimationResource(resIds[0], ANIM_FPS, 9);  // [edit] 리소스 id 랜덤 값으로 변경하기
         this.warrior = Warrior.getInstance(null);
+        this.autoTarget = AutoTarget.getInstance();
         float randomX = (float)(Math.random()*10)+10;
         float randomY = (float)(Math.random()*10)+10;
         if(randomX%2>1)
@@ -78,6 +83,9 @@ public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
                 x+width/4,y-warrior.getY()+height/4+Metrics.height/2);
         collisionRect.set(dstRect);
         collisionRect.inset(0.11f, 0.11f);
+        autoTarget.push(this);
+        if(distance < 5.0f)
+            autoTarget.Update(distance, num);
     }
 
     @Override
@@ -109,4 +117,8 @@ public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
         life -= power;
         return life <= 0;
     }
+
+    public float getX(){return x;}
+    public float getY(){return y;}
+
 }

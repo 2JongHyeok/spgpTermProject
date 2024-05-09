@@ -29,6 +29,7 @@ public class EnemyGenerator implements IGameObject {
         if (scene == null) return;
         if(totlaEnemy > 300)
             return;
+        totlaEnemy++;
         scene.add(MainScene.Layer.enemy, Enemy.get(level, totlaEnemy));
 
         }

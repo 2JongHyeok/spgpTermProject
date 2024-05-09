@@ -11,8 +11,11 @@ public class CollisionChecker implements IGameObject {
     private static final String TAG = CollisionChecker.class.getSimpleName();
     private final MainScene scene;
 
+    private final AutoTarget autoTarget;
+
     public CollisionChecker(MainScene scene) {
         this.scene = scene;
+        this.autoTarget = AutoTarget.getInstance();
     }
 
     @Override
@@ -28,6 +31,7 @@ public class CollisionChecker implements IGameObject {
                     scene.remove(MainScene.Layer.bullet, bullet);
                     boolean dead = enemy.decreaseLife(bullet.getPower());
                     if (dead) {
+                        autoTarget.clear();
                         scene.remove(MainScene.Layer.enemy, enemy);
                         scene.addScore(enemy.getScore());
                     }
