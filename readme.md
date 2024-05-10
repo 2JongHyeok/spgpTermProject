@@ -138,6 +138,13 @@
 
   ![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/bdc1d2d4-227c-4c63-8977-a780e94bf372)
 
+  *Enemy class
+  ![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/9a59874f-c83c-43c7-b05d-947c28da0963)
+
+  *back ground class
+  ![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/7149b574-5e25-4762-b3e2-704eceb7787c)
+
+
   
 
 
