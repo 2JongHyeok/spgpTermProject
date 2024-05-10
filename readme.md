@@ -129,7 +129,15 @@
 * **9주차  ( 2024-05-30 ~ 2024-06-05 )**
 
   마무리 및 게임 다듬기
-  
+
+
+
+* **진행상황**
+
+  *Warrior class
+
+  ![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/bdc1d2d4-227c-4c63-8977-a780e94bf372)
+
   
 
 
