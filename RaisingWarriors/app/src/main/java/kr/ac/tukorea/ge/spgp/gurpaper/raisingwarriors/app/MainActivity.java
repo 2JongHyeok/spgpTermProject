@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private ActivityMainBinding binding;
+    private int stage, cookieIndex;
     private ValueAnimator animator;
 
     @Override
@@ -33,6 +34,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setStage(1);
+    }
+    private void setStage(int stage) {
+        this.stage = stage;
+        String text = getString(R.string.title_stage_fmt, stage);
+        binding.stageTextView.setText(text);
+        binding.prevButton.setEnabled(stage > 1);
+        binding.nextButton.setEnabled(stage < 3);
     }
     @Override
     public boolean onTouchEvent(MotionEvent event) {
