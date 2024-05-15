@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         this.stage = stage;
         String text = getString(R.string.title_stage_fmt, stage);
         binding.stageTextView.setText(text);
-        binding.prevButton.setEnabled(stage > 1);
-        binding.nextButton.setEnabled(stage < 3);
+        binding.prevStageButton.setEnabled(stage > 1);
+        binding.nextStageButton.setEnabled(stage < 3);
     }
     @Override
     public boolean onTouchEvent(MotionEvent event) {

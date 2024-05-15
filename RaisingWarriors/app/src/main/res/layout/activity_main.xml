@@ -8,15 +8,23 @@
     android:background="@mipmap/bg_image"
     android:orientation="vertical"
     android:screenOrientation="landscape"
-    tools:context=".app.MainActivity">
-
+    tools:context=".app.MainActivity"
+    >
+    <TextView
+        android:id="@+id/stageTextView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="Stage1"
+        android:textSize="50dp"
+        android:lines="1"
+        android:gravity="center"
+        />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="500dp"
         android:orientation="horizontal"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
-        android:paddingTop="100dp"
         >
 
         <Button
@@ -31,12 +39,12 @@
             android:onClick="onBtnPreviousStage"
             />
         <ImageView
-            android:id="@+id/stageTextView"
+            android:id="@+id/stageImageView"
             android:layout_width="30dp"
-            android:layout_height="500dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@mipmap/map_1"
-            android:gravity="center"
+            android:gravity="top"
             />
 
         <Button
@@ -59,39 +67,44 @@
         />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         android:gravity="center"
         >
         <ImageButton
             android:id="@+id/shop"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="0dp"
             android:minWidth="30dp"
             android:minHeight="40dp"
-            android:text="&lt;"
+            android:background="@mipmap/shop_logo"
+            android:layout_weight="1"
             android:onClick="onBtnPrevious"
             />
-        <Button
+        <ImageButton
             android:id="@+id/stage"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="0dp"
             android:minWidth="30dp"
             android:minHeight="40dp"
+            android:layout_weight="1"
+            android:background="@mipmap/main_logo"
             android:text="&lt;"
             android:onClick="onBtnPrevious"
             />
-        <Button
-            android:id="@+id/equip"
-            android:layout_width="wrap_content"
+        <ImageButton
+            android:id="@+id/hero"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="0dp"
             android:minWidth="30dp"
             android:minHeight="40dp"
-            android:text="&gt;"
-            android:onClick="onBtnNext"
+            android:layout_weight="1"
+            android:background="@mipmap/hero_logo"
+            android:text="&lt;"
+            android:onClick="onBtnPrevious"
             />
     </LinearLayout>
 </LinearLayout>
