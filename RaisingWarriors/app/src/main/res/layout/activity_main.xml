@@ -14,7 +14,7 @@
         android:id="@+id/stageTextView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="Stage1"
+        android:text="Stage 1"
         android:textSize="50dp"
         android:lines="1"
         android:gravity="center"
@@ -40,9 +40,9 @@
             />
         <ImageView
             android:id="@+id/stageImageView"
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
+            android:layout_width="100dp"
             android:layout_weight="1"
+            android:layout_height="450dp"
             android:background="@mipmap/map_1"
             android:gravity="top"
             />

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RaisingWarriors</string>
     <string name="title_stage_fmt">Stage %d</string>
+    <string name="map_image_fmt">map_%d</string>
 </resources>
