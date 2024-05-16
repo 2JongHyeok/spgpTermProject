@@ -15,6 +15,8 @@ public class MainScene extends Scene {
     private static final String TAG = MainScene.class.getSimpleName();
     private final Warrior warrior;
     private final JoyStick joyStick;
+    public static String KEY_STAGE = "stage";
+    public static final String KEY_STAGE_ID = "stageId";
     Score score; // package private
 
     public int getScore() {
