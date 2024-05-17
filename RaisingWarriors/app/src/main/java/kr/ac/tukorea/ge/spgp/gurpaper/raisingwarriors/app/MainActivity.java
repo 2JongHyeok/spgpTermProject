@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private void setStage(int index) {
         this.stage = index;
         binding.stageTextView.setText("Stage " + index);
-        binding.prevStageButton.setEnabled(index > 0);
+        binding.prevStageButton.setEnabled(index > 1);
         binding.nextStageButton.setEnabled(index < 3);
     }
 
