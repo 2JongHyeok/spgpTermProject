@@ -10,12 +10,13 @@ import kr.ac.tukorea.ge.spgp.gurpaper.framework.interfaces.IRecyclable;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Sprite;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.scene.RecycleBin;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.scene.Scene;
+import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.MovingBackground;
+
 
 public class Bullet extends Sprite implements IBoxCollidable, IRecyclable {
     private static final float BULLET_WIDTH = 0.68f;
     private static final float BULLET_HEIGHT = BULLET_WIDTH * 40 / 28;
     private static final float SPEED = 20.0f;
-
     private static float target_x,target_y;
     private Warrior warrior;
     private int power;
@@ -33,13 +34,19 @@ public class Bullet extends Sprite implements IBoxCollidable, IRecyclable {
         if (bullet != null) {
             bullet.setPosition(x, y, BULLET_WIDTH, BULLET_HEIGHT);
             bullet.power = power;
-            target_x = t_x;
-            target_y = t_y;
+            bullet.target_x = t_x;
+            bullet.target_y = t_y;
             return bullet;
         }
         return new Bullet(x, y, power, t_x, t_y);
     }
-
+    public void Move(float elapsedSeconds) {
+        float timedDx = dx * elapsedSeconds;
+        float timedDy = dy * elapsedSeconds;
+        x += timedDx;
+        y += timedDy;
+        dstRect.offset(timedDx, timedDy);
+    }
     @Override
     public void update(float elapsedSeconds) {
         float distanceX = x - target_x;
@@ -60,6 +67,7 @@ public class Bullet extends Sprite implements IBoxCollidable, IRecyclable {
         dy = unitY * moveDistance;
         x -= dx;
         y -= dy;
+
         dstRect.set(x-width/4,y- warrior.getY()-height/4+ Metrics.height/2,
                 x+width/4,y-warrior.getY()+height/4+Metrics.height/2);
     }

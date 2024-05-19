@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 
 import java.util.ArrayList;
 
+import kr.ac.tukorea.ge.spgp.gurpaper.framework.interfaces.ITouchable;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.BuildConfig;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.activity.GameActivity;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.interfaces.IBoxCollidable;
@@ -20,6 +21,8 @@ public class Scene {
 
     private static final String TAG = Scene.class.getSimpleName();
     private static ArrayList<Scene> stack = new ArrayList<>();
+
+    public static boolean drawsDebugInfo = false;
 
     public static Scene top() {
         int top = stack.size() - 1;
@@ -37,10 +40,24 @@ public class Scene {
         stack.add(scene);
         scene.onStart();
     }
-
     public void push() {
         push(this);
     }
+
+    public static void change(Scene scene) {
+        Scene prev = top();
+        if (prev != null) {
+            scene.onEnd();
+        }
+        int topIndex = stack.size() - 1;
+        stack.set(topIndex, scene);
+        scene.onStart();
+    }
+
+    public void change() {
+        change(this);
+    }
+
     public static void pop() {
         Scene scene = top();
         if (scene == null) {
@@ -70,9 +87,9 @@ public class Scene {
     }
 
     public static void finishActivity() {
-        //GameView gameView = null;
-        //gaveView.getActivity().finish();
-        GameActivity.activity.finish();
+        if (GameActivity.activity != null) {
+            GameActivity.activity.finish();
+        }
     }
 
     public static void pauseTop() {
@@ -124,21 +141,29 @@ public class Scene {
 
     protected static Paint bboxPaint;
     public void draw(Canvas canvas) {
-        if (this.clipsRect()) {
+        draw(canvas, stack.size() - 1);
+    }
+    protected static void draw(Canvas canvas, int index) {
+        Scene scene = stack.get(index);
+        if (scene.isTransparent() && index > 0) {
+            draw(canvas, index - 1);
+        }
+
+        if (scene.clipsRect()) {
             canvas.clipRect(0, 0, Metrics.width, Metrics.height);
         }
-        for (ArrayList<IGameObject> objects: layers) {
+        for (ArrayList<IGameObject> objects: scene.layers) {
             for (IGameObject gobj : objects) {
                 gobj.draw(canvas);
             }
         }
-        if (BuildConfig.DEBUG) {
+        if (Scene.drawsDebugInfo) {
             if (bboxPaint == null) {
                 bboxPaint = new Paint();
                 bboxPaint.setStyle(Paint.Style.STROKE);
                 bboxPaint.setColor(Color.RED);
             }
-            for (ArrayList<IGameObject> objects: layers) {
+            for (ArrayList<IGameObject> objects: scene.layers) {
                 for (IGameObject gobj : objects) {
                     if (gobj instanceof IBoxCollidable) {
                         RectF rect = ((IBoxCollidable) gobj).getCollisionRect();
@@ -149,13 +174,25 @@ public class Scene {
         }
     }
 
+    protected int getTouchLayerIndex() {
+        return -1;
+    }
     public boolean onTouch(MotionEvent event) {
+        int touchLayer = getTouchLayerIndex();
+        if (touchLayer < 0) return false;
+        ArrayList<IGameObject> gameObjects = layers.get(touchLayer);
+        for (IGameObject gobj : gameObjects) {
+            if (!(gobj instanceof ITouchable)) {
+                continue;
+            }
+            boolean processed = ((ITouchable) gobj).onTouchEvent(event);
+            if (processed) return true;
+        }
         return false;
     }
 
     //////////////////////////////////////////////////
     // Overridables
-
 
     protected void onStart() {
     }
@@ -173,6 +210,10 @@ public class Scene {
 
     public boolean clipsRect() {
         return true;
+    }
+
+    public boolean isTransparent() {
+        return false;
     }
 
     //////////////////////////////////////////////////

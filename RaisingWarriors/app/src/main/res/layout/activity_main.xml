@@ -43,7 +43,6 @@
             android:layout_width="100dp"
             android:layout_weight="1"
             android:layout_height="450dp"
-            android:background="@mipmap/map_1"
             android:gravity="top"
             />
 
