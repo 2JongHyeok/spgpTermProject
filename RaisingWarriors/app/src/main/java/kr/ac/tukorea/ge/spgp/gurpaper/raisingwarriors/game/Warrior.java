@@ -13,10 +13,14 @@ import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.R;
 public class Warrior extends Sprite {
     private static final float WARRIOR_WIDTH = 1.f;
     private static final float WARRIOR_HEIGHT = WARRIOR_WIDTH * 259/181;
-    private static final float SPEED = 3.0f;
-    private static final float FIRE_INTERVAL = 1.0f;
+    public   float SPEED = 3.0f;
+
+    public int HP = 100;
+
+    public int POWER = 1;
+    public float FIRE_INTERVAL = 1.0f;
     private static final float BULLET_OFFSET = 0.8f;
-    private final JoyStick joyStick;
+    private JoyStick joyStick;
     private static Warrior instance;
     private AutoTarget autoTarget;
     private float angle;
@@ -24,6 +28,10 @@ public class Warrior extends Sprite {
 
     private Warrior(JoyStick joyStick) {
         super(R.mipmap.charactor);
+         initWarrior(joyStick);
+    }
+
+    public void initWarrior(JoyStick joyStick) {
         x = Metrics.width / 2;
         y = 2 * Metrics.height / 3;
         angle = -90;
@@ -31,10 +39,15 @@ public class Warrior extends Sprite {
         this.joyStick = joyStick;
         autoTarget = AutoTarget.getInstance();
     }
+
     public static synchronized Warrior getInstance(JoyStick joyStick) {
         if (instance == null) {
             instance = new Warrior(joyStick);
         }
+        return instance;
+    }
+
+    public static synchronized Warrior getInstance() {
         return instance;
     }
 
@@ -68,8 +81,7 @@ public class Warrior extends Sprite {
         fireCoolTime = FIRE_INTERVAL;
 
         int score = scene.getScore();
-        int power = 10 + score / 1000;
-        Bullet bullet = Bullet.get(x, y, power,
+        Bullet bullet = Bullet.get(x, y, POWER,
                 autoTarget.getTargetX(nearestEnemy), autoTarget.getTargetY(nearestEnemy));
         autoTarget.clear();
 

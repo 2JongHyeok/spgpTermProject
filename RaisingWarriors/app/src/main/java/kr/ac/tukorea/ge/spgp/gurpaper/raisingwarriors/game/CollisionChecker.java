@@ -11,6 +11,8 @@ public class CollisionChecker implements IGameObject {
     private static final String TAG = CollisionChecker.class.getSimpleName();
     private final MainScene scene;
 
+
+
     private final AutoTarget autoTarget;
 
     public CollisionChecker(MainScene scene) {
@@ -34,10 +36,12 @@ public class CollisionChecker implements IGameObject {
                         autoTarget.clear();
                         scene.remove(MainScene.Layer.enemy, enemy);
                         scene.addScore(enemy.getScore());
+                        scene.deadEnemy +=1;
                     }
                     break;
                 }
             }
+
         }
     }
 

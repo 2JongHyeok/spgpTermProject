@@ -79,7 +79,7 @@
             android:minHeight="40dp"
             android:background="@mipmap/shop_logo"
             android:layout_weight="1"
-            android:onClick="onBtnPrevious"
+            android:onClick="onBtnShop"
             />
         <ImageButton
             android:id="@+id/stage"

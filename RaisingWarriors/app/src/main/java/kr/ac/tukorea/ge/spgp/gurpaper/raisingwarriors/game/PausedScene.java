@@ -2,6 +2,7 @@ package kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.game;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.widget.TextView;
 
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.R;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.activity.GameActivity;
@@ -19,16 +20,15 @@ public class PausedScene extends Scene {
         initLayers(Layer.COUNT);
         float w = Metrics.width, h = Metrics.height;
         float cx = w / 2, cy = h / 2;
-        add(Layer.bg, new Sprite(R.mipmap.trans_50b, cx, cy, w, h));
-        add(Layer.bg, new Sprite(R.mipmap.pause_image, cx, cy, 12.00f, 6.75f));
-        add(Layer.touch, new Button(R.mipmap.btn_resume_n, 14.5f, 1.0f, 2.0f, 0.75f, new Button.Callback() {
+        add(Layer.bg, new Sprite(R.mipmap.pause_image, cx, cy, 3.00f, 3.0f));
+        add(Layer.touch, new Button(R.mipmap.btn_resume_n, 4.5f, 7.0f, 2.0f, 0.75f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
                 pop();
                 return false;
             }
         }));
-        add(Layer.touch, new Button(R.mipmap.btn_exit_n, 8f, 5.5f, 2.667f, 1f, new Button.Callback() {
+        add(Layer.touch, new Button(R.mipmap.btn_exit_n, 4.5f, 8f, 2.667f, 1f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
                 new AlertDialog.Builder(GameActivity.activity)

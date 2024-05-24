@@ -15,6 +15,8 @@ import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.BuildConfig;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.R;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.databinding.ActivityMainBinding;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.game.MainScene;
+import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.game.Money;
+import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.game.ShopScene;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -66,5 +68,8 @@ public class MainActivity extends AppCompatActivity {
     public void onBtnNextStage(View view) {
         setStage(stage + 1);
         ChangeMap();
+    }
+    public void onBtnShop(View view) {
+        startActivity(new Intent(this, ShopActivity.class));
     }
 }

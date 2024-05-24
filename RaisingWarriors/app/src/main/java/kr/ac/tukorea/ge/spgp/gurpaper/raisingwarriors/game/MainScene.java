@@ -14,15 +14,20 @@ import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Score;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.VertScrollBackground;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.scene.Scene;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.view.Metrics;
+import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.app.MainActivity;
 
 public class MainScene extends Scene {
     private static final String TAG = MainScene.class.getSimpleName();
     private final Warrior warrior;
     private final JoyStick joyStick;
+    private Money money;
     public static String KEY_STAGE = "stage";
     public static final String KEY_STAGE_ID = "stageId";
     private int stage;
     Score score; // package private
+    public int deadEnemy = 0;
+
+    private static  MainActivity ma;
 
     public int getScore() {
         return score.getScore();
@@ -32,6 +37,7 @@ public class MainScene extends Scene {
         bg, enemy, bullet, player, ui, touch,controller, COUNT
     }
     public MainScene() {
+        money = Money.getInstance();
         Intent intent = GameActivity.activity.getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null) {
@@ -42,6 +48,7 @@ public class MainScene extends Scene {
         this.joyStick = new JoyStick(R.mipmap.joystick_bg, R.mipmap.joystick_thumb);
         joyStick.setRects(1, 15, 1, 0.3f, 0.8f);
         this.warrior = Warrior.getInstance(joyStick);
+        this.warrior.initWarrior(joyStick);
         add(Layer.player, warrior);
 
 
@@ -83,5 +90,10 @@ public class MainScene extends Scene {
     @Override
     public void update(float elapsedSeconds) {
         super.update(elapsedSeconds);
+        if(deadEnemy == 10){
+            deadEnemy = 0;
+            money.money += stage*100;
+            finishActivity();
+        }
     }
 }
