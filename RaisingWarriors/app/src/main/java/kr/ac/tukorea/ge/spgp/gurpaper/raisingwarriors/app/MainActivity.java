@@ -72,4 +72,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBtnShop(View view) {
         startActivity(new Intent(this, ShopActivity.class));
     }
+    public void onBtnHero(View view){
+        startActivity(new Intent(this, HeroActivity.class));
+    }
 }

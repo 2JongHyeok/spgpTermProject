@@ -90,8 +90,6 @@
             android:minHeight="40dp"
             android:layout_weight="1"
             android:background="@mipmap/main_logo"
-            android:text="&lt;"
-            android:onClick="onBtnPrevious"
             />
         <ImageButton
             android:id="@+id/hero"
@@ -103,7 +101,7 @@
             android:layout_weight="1"
             android:background="@mipmap/hero_logo"
             android:text="&lt;"
-            android:onClick="onBtnPrevious"
+            android:onClick="onBtnHero"
             />
     </LinearLayout>
 </LinearLayout>

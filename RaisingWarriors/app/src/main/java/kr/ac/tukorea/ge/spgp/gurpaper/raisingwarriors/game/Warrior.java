@@ -1,30 +1,36 @@
 package kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.game;
 
 import android.graphics.Canvas;
+import android.graphics.RectF;
 import android.view.MotionEvent;
 
+import kr.ac.tukorea.ge.spgp.gurpaper.framework.interfaces.IBoxCollidable;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.JoyStick;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Sprite;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.res.BitmapPool;
+import kr.ac.tukorea.ge.spgp.gurpaper.framework.scene.RecycleBin;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.scene.Scene;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.view.Metrics;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.R;
 
-public class Warrior extends Sprite {
+public class Warrior extends Sprite implements IBoxCollidable {
     private static final float WARRIOR_WIDTH = 1.f;
     private static final float WARRIOR_HEIGHT = WARRIOR_WIDTH * 259/181;
     public   float SPEED = 3.0f;
 
-    public int HP = 100;
+    public int MAX_HP = 100;
 
-    public int POWER = 1;
+    public int POWER = 5;
     public float FIRE_INTERVAL = 1.0f;
+    public int  ATTACK_SPEED = 0;
     private static final float BULLET_OFFSET = 0.8f;
     private JoyStick joyStick;
     private static Warrior instance;
     private AutoTarget autoTarget;
     private float angle;
-    private float fireCoolTime = FIRE_INTERVAL;
+    private float fireCoolTime = FIRE_INTERVAL-(ATTACK_SPEED*(float)0.01);
+
+    public int hp;
 
     private Warrior(JoyStick joyStick) {
         super(R.mipmap.charactor);
@@ -46,7 +52,9 @@ public class Warrior extends Sprite {
         }
         return instance;
     }
-
+    public RectF getCollisionRect() {
+        return dstRect;
+    }
     public static synchronized Warrior getInstance() {
         return instance;
     }
@@ -78,7 +86,7 @@ public class Warrior extends Sprite {
         if (fireCoolTime > 0) return;
         int nearestEnemy = autoTarget.getNearestEnemy();
         if(nearestEnemy == -1) return;
-        fireCoolTime = FIRE_INTERVAL;
+        fireCoolTime = FIRE_INTERVAL-(ATTACK_SPEED*(float)0.01);
 
         int score = scene.getScore();
         Bullet bullet = Bullet.get(x, y, POWER,

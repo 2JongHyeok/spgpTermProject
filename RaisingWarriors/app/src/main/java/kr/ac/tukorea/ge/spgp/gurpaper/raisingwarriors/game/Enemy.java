@@ -18,7 +18,7 @@ public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
     private static final int[] resIds = { R.mipmap.zombie_1,};
     public static final float ANIM_FPS = 5.0f;
     protected RectF collisionRect = new RectF();
-    private int level;
+    public int level;
 
     public int  num=0;
     private int  life, maxLife;

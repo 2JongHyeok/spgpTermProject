@@ -19,18 +19,22 @@ import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Sprite;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.scene.Scene;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.view.Metrics;
 
-public class ShopScene extends Scene {
+public class HeroScene extends Scene {
     private final Money money;
     private final JoyStick joyStick;
     private Warrior warrior;
 
     MoneyImage moneyImage;
+    HeroAttackImage damageImage;
+    HeroSpeedImage speedImage;
+    HeroAttackSpeedImage attackSpeedImage;
+    HeroHpImage hpImage;
 
     public enum Layer {
         bg, touch , ui, COUNT
     }
 
-    public ShopScene() {
+    public HeroScene() {
         warrior.getInstance();
         initLayers(Layer.COUNT);
         add(Layer.bg, new ShopBackGround(R.mipmap.pause_image));
@@ -105,6 +109,18 @@ public class ShopScene extends Scene {
         this.moneyImage = new MoneyImage(R.mipmap.number_24x32, Metrics.width/2 - 1, 0.7f, 0.5f);
         moneyImage.setMoney(money.money);
         add(Layer.ui, moneyImage);
+        this.damageImage = new HeroAttackImage(R.mipmap.number_24x32, Metrics.width/2 +1, 2.5f, 0.5f);
+        damageImage.setDamage(warrior.POWER);
+        add(ShopScene.Layer.ui, damageImage);
+        this.speedImage = new HeroSpeedImage(R.mipmap.number_24x32, Metrics.width/2 +1, 5.5f, 0.5f);
+        speedImage.setSpeed((int)warrior.SPEED);
+        add(ShopScene.Layer.ui, speedImage);
+        this.hpImage = new HeroHpImage(R.mipmap.number_24x32, Metrics.width/2 +1, 8.5f, 0.5f);
+        hpImage.setHp(warrior.MAX_HP);
+        add(ShopScene.Layer.ui, hpImage);
+        this.attackSpeedImage = new HeroAttackSpeedImage(R.mipmap.number_24x32, Metrics.width/2 +1, 11.5f, 0.5f);
+        attackSpeedImage.setAttackSpeed(warrior.ATTACK_SPEED);
+        add(ShopScene.Layer.ui, attackSpeedImage);
     }
 
     @Override

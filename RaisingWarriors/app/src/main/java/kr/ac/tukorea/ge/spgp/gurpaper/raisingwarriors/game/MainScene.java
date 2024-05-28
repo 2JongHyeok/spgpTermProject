@@ -49,6 +49,7 @@ public class MainScene extends Scene {
         joyStick.setRects(1, 15, 1, 0.3f, 0.8f);
         this.warrior = Warrior.getInstance(joyStick);
         this.warrior.initWarrior(joyStick);
+        warrior.hp = warrior.MAX_HP;
         add(Layer.player, warrior);
 
 

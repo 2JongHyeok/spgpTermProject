@@ -4,13 +4,19 @@ import android.graphics.Canvas;
 
 import java.util.ArrayList;
 
+import kr.ac.tukorea.ge.spgp.gurpaper.framework.interfaces.IBoxCollidable;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.interfaces.IGameObject;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.util.CollisionHelper;
+import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.game.Money;
 
 public class CollisionChecker implements IGameObject {
     private static final String TAG = CollisionChecker.class.getSimpleName();
     private final MainScene scene;
+    private Money money = Money.getInstance();
 
+    private Warrior warrior = Warrior.getInstance();
+
+    
 
 
     private final AutoTarget autoTarget;
@@ -37,11 +43,14 @@ public class CollisionChecker implements IGameObject {
                         scene.remove(MainScene.Layer.enemy, enemy);
                         scene.addScore(enemy.getScore());
                         scene.deadEnemy +=1;
+                        money.money += 2;
                     }
                     break;
                 }
             }
-
+            if(CollisionHelper.collides(enemy, warrior)){
+                warrior.hp -= (enemy.level * 10);
+            }
         }
     }
 
