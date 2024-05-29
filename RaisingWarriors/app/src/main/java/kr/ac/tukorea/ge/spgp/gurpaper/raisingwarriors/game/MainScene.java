@@ -96,5 +96,8 @@ public class MainScene extends Scene {
             money.money += stage*100;
             finishActivity();
         }
+        if(warrior.hp <= 0){
+            finishActivity();
+        }
     }
 }

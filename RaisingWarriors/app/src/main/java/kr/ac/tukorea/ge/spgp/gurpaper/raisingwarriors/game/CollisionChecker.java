@@ -16,7 +16,10 @@ public class CollisionChecker implements IGameObject {
 
     private Warrior warrior = Warrior.getInstance();
 
-    
+    private float playerDamageCoolTime = 1.0f;
+
+
+
 
 
     private final AutoTarget autoTarget;
@@ -48,6 +51,9 @@ public class CollisionChecker implements IGameObject {
                     break;
                 }
             }
+            playerDamageCoolTime -= elapsedSeconds;
+            if (playerDamageCoolTime > 0) continue;
+            playerDamageCoolTime = 1;
             if(CollisionHelper.collides(enemy, warrior)){
                 warrior.hp -= (enemy.level * 10);
             }
