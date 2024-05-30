@@ -25,6 +25,7 @@ public class MainScene extends Scene {
     public static final String KEY_STAGE_ID = "stageId";
     private int stage;
     Score score; // package private
+    IngameHpImage ingameHpImage;
     public int deadEnemy = 0;
 
     private static  MainActivity ma;
@@ -73,6 +74,9 @@ public class MainScene extends Scene {
 
         add(Layer.controller, new EnemyGenerator());
         add(Layer.controller, new CollisionChecker(this));
+        this.ingameHpImage = new IngameHpImage(R.mipmap.number_24x32, Metrics.width/2, 0.7f, 0.5f);
+        ingameHpImage.setHp(warrior.hp);
+        add(Layer.ui, ingameHpImage);
         //add(Layer.ui, score);
     }
     @Override
@@ -99,5 +103,6 @@ public class MainScene extends Scene {
         if(warrior.hp <= 0){
             finishActivity();
         }
+        ingameHpImage.setHp(warrior.hp);
     }
 }
