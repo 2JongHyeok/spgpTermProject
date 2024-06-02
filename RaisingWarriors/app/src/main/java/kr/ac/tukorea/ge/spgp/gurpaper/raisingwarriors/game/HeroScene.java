@@ -115,10 +115,10 @@ public class HeroScene extends Scene {
         this.speedImage = new HeroSpeedImage(R.mipmap.number_24x32, Metrics.width/2 +1, 5.5f, 0.5f);
         speedImage.setSpeed((int)warrior.SPEED);
         add(ShopScene.Layer.ui, speedImage);
-        this.hpImage = new HeroHpImage(R.mipmap.number_24x32, Metrics.width/2 +1, 8.5f, 0.5f);
+        this.hpImage = new HeroHpImage(R.mipmap.number_24x32, Metrics.width/2 +1, 11.5f, 0.5f);
         hpImage.setHp(warrior.MAX_HP);
         add(ShopScene.Layer.ui, hpImage);
-        this.attackSpeedImage = new HeroAttackSpeedImage(R.mipmap.number_24x32, Metrics.width/2 +1, 11.5f, 0.5f);
+        this.attackSpeedImage = new HeroAttackSpeedImage(R.mipmap.number_24x32, Metrics.width/2 +1, 8.5f, 0.5f);
         attackSpeedImage.setAttackSpeed(warrior.ATTACK_SPEED);
         add(ShopScene.Layer.ui, attackSpeedImage);
     }
