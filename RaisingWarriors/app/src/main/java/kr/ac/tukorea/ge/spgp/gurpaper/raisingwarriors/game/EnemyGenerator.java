@@ -15,6 +15,9 @@ public class EnemyGenerator implements IGameObject {
 
     private int level = 1;
     private int totlaEnemy = 0;
+    public EnemyGenerator(int level){
+        this.level =level;
+    }
     @Override
     public void update(float elapsedSeconds) {
         enemyTime -= elapsedSeconds;
@@ -31,7 +34,6 @@ public class EnemyGenerator implements IGameObject {
             return;
         totlaEnemy++;
         scene.add(MainScene.Layer.enemy, Enemy.get(level, totlaEnemy));
-
         }
 
     @Override

@@ -46,7 +46,7 @@ public class CollisionChecker implements IGameObject {
                         scene.remove(MainScene.Layer.enemy, enemy);
                         scene.addScore(enemy.getScore());
                         scene.deadEnemy +=1;
-                        money.money += 2;
+                        money.money += enemy.level * 2;
                     }
                     break;
                 }

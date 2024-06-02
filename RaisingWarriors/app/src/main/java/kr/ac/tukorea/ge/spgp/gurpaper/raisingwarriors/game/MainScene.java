@@ -72,7 +72,7 @@ public class MainScene extends Scene {
         score.setScore(0);
         add(Layer.controller, joyStick);
 
-        add(Layer.controller, new EnemyGenerator());
+        add(Layer.controller, new EnemyGenerator(stage));
         add(Layer.controller, new CollisionChecker(this));
         this.ingameHpImage = new IngameHpImage(R.mipmap.number_24x32, Metrics.width/2, 0.7f, 0.5f);
         ingameHpImage.setHp(warrior.hp);
