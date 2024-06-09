@@ -8,6 +8,7 @@ import kr.ac.tukorea.ge.spgp.gurpaper.framework.activity.GameActivity;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.JoyStick;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.MainPage;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.MovingBackground;
+import kr.ac.tukorea.ge.spgp.gurpaper.framework.res.Sound;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.R;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Button;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Score;
@@ -91,7 +92,9 @@ public class MainScene extends Scene {
     public void addScore(int amount) {
         score.add(amount);
     }
-
+    protected void onStart() {
+        Sound.playMusic(R.raw.main);
+    }
     @Override
     public void update(float elapsedSeconds) {
         super.update(elapsedSeconds);
