@@ -12,6 +12,7 @@ import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.JoyStick;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.MovingBackground;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Score;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.ShopBackGround;
+import kr.ac.tukorea.ge.spgp.gurpaper.framework.res.Sound;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.R;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.activity.GameActivity;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Button;
@@ -35,6 +36,7 @@ public class HeroScene extends Scene {
     }
 
     public HeroScene() {
+        Sound.playEffect(R.raw.click_sound);
         warrior.getInstance();
         initLayers(Layer.COUNT);
         add(Layer.bg, new ShopBackGround(R.mipmap.pause_image));

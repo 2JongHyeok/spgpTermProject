@@ -12,6 +12,7 @@ import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.JoyStick;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.MovingBackground;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Score;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.ShopBackGround;
+import kr.ac.tukorea.ge.spgp.gurpaper.framework.res.Sound;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.R;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.activity.GameActivity;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Button;
@@ -34,7 +35,7 @@ public class ShopScene extends Scene {
     }
 
     public ShopScene() {
-
+        Sound.playEffect(R.raw.click_sound);
         warrior.getInstance();
         initLayers(Layer.COUNT);
         add(Layer.bg, new ShopBackGround(R.mipmap.pause_image));
@@ -52,6 +53,7 @@ public class ShopScene extends Scene {
             public boolean onTouch(Button.Action action) {
                 if(money.money < 10)
                     return false;
+                Sound.playEffect(R.raw.btn_click_sound);
                 warrior.POWER += 1;
                 money.money -= DAMAGE_GOLD;
                 DAMAGE_GOLD += 2;
@@ -65,6 +67,7 @@ public class ShopScene extends Scene {
             public boolean onTouch(Button.Action action) {
                 if(money.money < 10)
                     return false;
+                Sound.playEffect(R.raw.btn_click_sound);
                 warrior.FIRE_INTERVAL -= 0.01f;
                 money.money -= ATTACK_SPEED_GOLD;
                 ATTACK_SPEED_GOLD += 2;
@@ -78,6 +81,7 @@ public class ShopScene extends Scene {
             public boolean onTouch(Button.Action action) {
                 if(money.money < 10)
                     return false;
+                Sound.playEffect(R.raw.btn_click_sound);
                 warrior.SPEED += 1;
                 money.money -= SPEED_GOLD;
                 SPEED_GOLD += 2;
@@ -91,6 +95,7 @@ public class ShopScene extends Scene {
             public boolean onTouch(Button.Action action) {
                 if(money.money < 10)
                     return false;
+                Sound.playEffect(R.raw.btn_click_sound);
                 warrior.MAX_HP += 5;
                 money.money -= HP_GOLD;
                 HP_GOLD += 2;

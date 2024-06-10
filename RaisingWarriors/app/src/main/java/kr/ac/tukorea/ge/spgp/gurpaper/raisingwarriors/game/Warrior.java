@@ -8,6 +8,7 @@ import kr.ac.tukorea.ge.spgp.gurpaper.framework.interfaces.IBoxCollidable;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.JoyStick;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Sprite;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.res.BitmapPool;
+import kr.ac.tukorea.ge.spgp.gurpaper.framework.res.Sound;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.scene.RecycleBin;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.scene.Scene;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.view.Metrics;
@@ -87,8 +88,8 @@ public class Warrior extends Sprite implements IBoxCollidable {
         int nearestEnemy = autoTarget.getNearestEnemy();
         if(nearestEnemy == -1) return;
         fireCoolTime = FIRE_INTERVAL-(ATTACK_SPEED*(float)0.01);
+        Sound.playEffect(R.raw.attack_sound);
 
-        int score = scene.getScore();
         Bullet bullet = Bullet.get(x, y, POWER,
                 autoTarget.getTargetX(nearestEnemy), autoTarget.getTargetY(nearestEnemy));
         autoTarget.clear();
