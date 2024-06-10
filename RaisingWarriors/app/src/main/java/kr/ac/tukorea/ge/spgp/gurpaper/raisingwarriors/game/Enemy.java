@@ -79,13 +79,24 @@ public class Enemy extends AnimSprite implements IBoxCollidable, IRecyclable {
         float dy = unitY * moveDistance;
         x-=dx;
         y-=dy;
-        dstRect.set(x-width/4,y-warrior.getY()-height/4+Metrics.height/2,
-                x+width/4,y-warrior.getY()+height/4+Metrics.height/2);
-        collisionRect.set(dstRect);
-        collisionRect.inset(0.11f, 0.11f);
-        autoTarget.push(this);
-        if(distance < 5.0f)
-            autoTarget.Update(distance, num);
+        if (this.num == 11){
+            dstRect.set(x-width,y-warrior.getY()-height+Metrics.height/2,
+                    x+width,y-warrior.getY()+height+Metrics.height/2);
+            collisionRect.set(dstRect);
+            collisionRect.inset(0.11f, 0.11f);
+            autoTarget.push(this);
+            if(distance < 5.0f)
+                autoTarget.Update(distance, num);
+        }
+        else {
+            dstRect.set(x - width / 4, y - warrior.getY() - height / 4 + Metrics.height / 2,
+                    x + width / 4, y - warrior.getY() + height / 4 + Metrics.height / 2);
+            collisionRect.set(dstRect);
+            collisionRect.inset(0.11f, 0.11f);
+            autoTarget.push(this);
+            if (distance < 5.0f)
+                autoTarget.Update(distance, num);
+        }
     }
 
     @Override

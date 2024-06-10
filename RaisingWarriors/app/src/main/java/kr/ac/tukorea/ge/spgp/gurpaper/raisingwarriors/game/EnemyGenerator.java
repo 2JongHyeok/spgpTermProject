@@ -30,11 +30,16 @@ public class EnemyGenerator implements IGameObject {
     private void generate() {
         Scene scene = Scene.top();
         if (scene == null) return;
-        if(totlaEnemy > 300)
+        if(totlaEnemy > 11)
             return;
         totlaEnemy++;
+        if(totlaEnemy == 11){
+            scene.add(MainScene.Layer.enemy, Enemy.get(level*10, totlaEnemy));
+        }
+        else{
         scene.add(MainScene.Layer.enemy, Enemy.get(level, totlaEnemy));
         }
+    }
 
     @Override
     public void draw(Canvas canvas) {
