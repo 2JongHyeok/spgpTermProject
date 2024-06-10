@@ -23,7 +23,7 @@ public class Warrior extends Sprite implements IBoxCollidable {
 
     public int POWER = 5;
     public float FIRE_INTERVAL = 1.0f;
-    public int  ATTACK_SPEED = 0;
+    public int  ATTACK_SPEED = 1;
     private static final float BULLET_OFFSET = 0.8f;
     private JoyStick joyStick;
     private static Warrior instance;

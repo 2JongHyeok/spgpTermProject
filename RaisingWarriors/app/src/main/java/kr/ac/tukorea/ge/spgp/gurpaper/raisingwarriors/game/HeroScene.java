@@ -52,44 +52,27 @@ public class HeroScene extends Scene {
         add(Layer.touch, new Button(R.mipmap.damage_up, 1.0f, 3.0f, 2.0f, 2.00f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
-                if(money.money < 10)
-                    return false;
-                warrior.POWER += 1;
-                money.money -= 10;
-                moneyImage.setMoney(money.money);
                 return false;
             }
         }));
         add(Layer.touch, new Button(R.mipmap.attack_speed, 1.0f, 6.0f, 2.0f, 2.00f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
-                if(money.money < 10)
-                    return false;
-                warrior.FIRE_INTERVAL -= 0.01f;
-                money.money -= 10;
-                moneyImage.setMoney(money.money);
+
                 return false;
             }
         }));
         add(Layer.touch, new Button(R.mipmap.speed_up, 1.0f, 9.0f, 2.0f, 2.00f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
-                if(money.money < 10)
-                    return false;
-                warrior.SPEED += 1;
-                money.money -= 10;
-                moneyImage.setMoney(money.money);
+
                 return false;
             }
         }));
         add(Layer.touch, new Button(R.mipmap.health_up, 1.0f, 12.0f, 2.0f, 2.00f, new Button.Callback() {
             @Override
             public boolean onTouch(Button.Action action) {
-                if(money.money < 10)
-                    return false;
-                warrior.MAX_HP += 5;
-                money.money -= 10;
-                moneyImage.setMoney(money.money);
+
                 return false;
             }
         }));
@@ -114,15 +97,16 @@ public class HeroScene extends Scene {
         this.damageImage = new HeroAttackImage(R.mipmap.number_24x32, Metrics.width/2 +1, 2.5f, 0.5f);
         damageImage.setDamage(warrior.POWER);
         add(ShopScene.Layer.ui, damageImage);
-        this.speedImage = new HeroSpeedImage(R.mipmap.number_24x32, Metrics.width/2 +1, 5.5f, 0.5f);
+        this.attackSpeedImage = new HeroAttackSpeedImage(R.mipmap.number_24x32, Metrics.width/2 +1, 5.5f, 0.5f);
+        attackSpeedImage.setAttackSpeed(warrior.ATTACK_SPEED);
+        add(ShopScene.Layer.ui, attackSpeedImage);
+        this.speedImage = new HeroSpeedImage(R.mipmap.number_24x32, Metrics.width/2 +1, 8.5f, 0.5f);
         speedImage.setSpeed((int)warrior.SPEED);
         add(ShopScene.Layer.ui, speedImage);
         this.hpImage = new HeroHpImage(R.mipmap.number_24x32, Metrics.width/2 +1, 11.5f, 0.5f);
         hpImage.setHp(warrior.MAX_HP);
         add(ShopScene.Layer.ui, hpImage);
-        this.attackSpeedImage = new HeroAttackSpeedImage(R.mipmap.number_24x32, Metrics.width/2 +1, 8.5f, 0.5f);
-        attackSpeedImage.setAttackSpeed(warrior.ATTACK_SPEED);
-        add(ShopScene.Layer.ui, attackSpeedImage);
+
     }
 
     @Override

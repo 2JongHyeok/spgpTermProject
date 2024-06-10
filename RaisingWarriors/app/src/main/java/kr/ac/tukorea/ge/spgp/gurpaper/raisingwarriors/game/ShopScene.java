@@ -68,7 +68,7 @@ public class ShopScene extends Scene {
                 if(money.money < 10)
                     return false;
                 Sound.playEffect(R.raw.btn_click_sound);
-                warrior.FIRE_INTERVAL -= 0.01f;
+                warrior.ATTACK_SPEED += 1;
                 money.money -= ATTACK_SPEED_GOLD;
                 ATTACK_SPEED_GOLD += 2;
                 attackSpeedGoldImage.setMoney(ATTACK_SPEED_GOLD);
