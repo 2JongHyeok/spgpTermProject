@@ -23,14 +23,18 @@ public class ShopScene extends Scene {
     private final Money money;
     private final JoyStick joyStick;
     private Warrior warrior;
-
+    private static int DAMAGE_GOLD=10, ATTACK_SPEED_GOLD=10, HP_GOLD=10, SPEED_GOLD=10;
     MoneyImage moneyImage;
-
+    DamageGoldImage damageGoldImage;
+    AttackSpeedGoldImage attackSpeedGoldImage;
+    HpGoldImage hpGoldImage;
+    SpeedGoldImage speedGoldImage;
     public enum Layer {
         bg, touch , ui, COUNT
     }
 
     public ShopScene() {
+
         warrior.getInstance();
         initLayers(Layer.COUNT);
         add(Layer.bg, new ShopBackGround(R.mipmap.pause_image));
@@ -49,7 +53,9 @@ public class ShopScene extends Scene {
                 if(money.money < 10)
                     return false;
                 warrior.POWER += 1;
-                money.money -= 10;
+                money.money -= DAMAGE_GOLD;
+                DAMAGE_GOLD += 2;
+                damageGoldImage.setMoney(DAMAGE_GOLD);
                 moneyImage.setMoney(money.money);
                 return false;
             }
@@ -60,7 +66,9 @@ public class ShopScene extends Scene {
                 if(money.money < 10)
                     return false;
                 warrior.FIRE_INTERVAL -= 0.01f;
-                money.money -= 10;
+                money.money -= ATTACK_SPEED_GOLD;
+                ATTACK_SPEED_GOLD += 2;
+                attackSpeedGoldImage.setMoney(ATTACK_SPEED_GOLD);
                 moneyImage.setMoney(money.money);
                 return false;
             }
@@ -71,7 +79,9 @@ public class ShopScene extends Scene {
                 if(money.money < 10)
                     return false;
                 warrior.SPEED += 1;
-                money.money -= 10;
+                money.money -= SPEED_GOLD;
+                SPEED_GOLD += 2;
+                speedGoldImage.setMoney(SPEED_GOLD);
                 moneyImage.setMoney(money.money);
                 return false;
             }
@@ -82,7 +92,9 @@ public class ShopScene extends Scene {
                 if(money.money < 10)
                     return false;
                 warrior.MAX_HP += 5;
-                money.money -= 10;
+                money.money -= HP_GOLD;
+                HP_GOLD += 2;
+                hpGoldImage.setMoney(HP_GOLD);
                 moneyImage.setMoney(money.money);
                 return false;
             }
@@ -105,6 +117,18 @@ public class ShopScene extends Scene {
         this.moneyImage = new MoneyImage(R.mipmap.number_24x32, Metrics.width/2 - 1, 0.7f, 0.5f);
         moneyImage.setMoney(money.money);
         add(Layer.ui, moneyImage);
+        this.damageGoldImage= new DamageGoldImage(R.mipmap.number_24x32, Metrics.width/2 +1, 2.5f, 0.5f);
+        damageGoldImage.setMoney(DAMAGE_GOLD);
+        add(Layer.ui, damageGoldImage);
+        this.attackSpeedGoldImage = new AttackSpeedGoldImage(R.mipmap.number_24x32, Metrics.width/2 + 1, 5.5f, 0.5f);
+        attackSpeedGoldImage.setMoney(ATTACK_SPEED_GOLD);
+        add(Layer.ui, attackSpeedGoldImage);
+        this.hpGoldImage = new HpGoldImage(R.mipmap.number_24x32, Metrics.width/2 + 1, 11.5f, 0.5f);
+        hpGoldImage.setMoney(HP_GOLD);
+        add(Layer.ui, hpGoldImage);
+        this.speedGoldImage = new SpeedGoldImage(R.mipmap.number_24x32, Metrics.width/2 +1, 8.5f, 0.5f);
+        speedGoldImage.setMoney(SPEED_GOLD);
+        add(Layer.ui, speedGoldImage);
     }
 
     @Override

@@ -6,13 +6,11 @@ import android.view.MotionEvent;
 
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.activity.GameActivity;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.JoyStick;
-import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.MainPage;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.MovingBackground;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.res.Sound;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.R;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Button;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.Score;
-import kr.ac.tukorea.ge.spgp.gurpaper.framework.objects.VertScrollBackground;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.scene.Scene;
 import kr.ac.tukorea.ge.spgp.gurpaper.framework.view.Metrics;
 import kr.ac.tukorea.ge.spgp.gurpaper.raisingwarriors.app.MainActivity;
@@ -93,7 +91,25 @@ public class MainScene extends Scene {
         score.add(amount);
     }
     protected void onStart() {
-        Sound.playMusic(R.raw.main);
+        if(stage == 1)
+            Sound.playMusic(R.raw.stage1_bg_sound);
+        else if(stage == 2)
+            Sound.playMusic(R.raw.stage2_bg_sound);
+        else if(stage == 3)
+            Sound.playMusic(R.raw.stage3_bg_sound);
+    }
+    protected void onPause() {
+        Sound.pauseMusic();
+    }
+
+    @Override
+    protected void onResume() {
+        Sound.resumeMusic();
+    }
+
+    @Override
+    protected void onEnd() {
+        Sound.stopMusic();
     }
     @Override
     public void update(float elapsedSeconds) {
