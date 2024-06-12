@@ -78,14 +78,14 @@
 * **1주차 ( 2024-04-04 ~ 2024-04-10 )**
 
    이미지 리소스 만들기
-   (10% 완료) 
+   (100% 완료) 
 
    
 
 * **2주차  ( 2024-04-11 ~ 2024-04-17 )**
 
   게임 시작 화면 및 Shop, Hero 버튼 구현
-  (10% 완료) 
+  (100% 완료) 
   
 
 * **3주차  ( 2024-04-18 ~ 2024-04-24 )**
@@ -98,7 +98,7 @@
 * **4주차  ( 2024-04-25 ~ 2024-05-01 )**
 
   적 AI, 적 공격 구현, 주인공 피격 구현
-  (50% 완료) 
+  (100% 완료) 
    
   
 * **5주차  ( 2024-05-02 ~ 2024-05-08 )**
@@ -111,25 +111,26 @@
 * **6주차  ( 2024-05-09 ~ 2024-05-15 )**
 
   스테이지 보상 구현, 상점 구현
-
+ (100% 완료) 
    
 
 * **7주차  ( 2024-05-16 ~ 2024-05-22 )**
 
-  캐릭터 능력치 업그레이드 구현
+  캐릭터 능력치 업그레이드 구현  (100% 완료) 
 
    
 
 * **8주차  ( 2024-05-23 ~ 2024-05-29 )**
 
-  보스 스테이지 구현
+  보스 스테이지 구현  (100% 완료) 
 
 
 
 * **9주차  ( 2024-05-30 ~ 2024-06-05 )**
 
-  마무리 및 게임 다듬기
+  마무리 및 게임 다듬기  (50% 완료) 
 
+  미흡한 점 : 총알이미지가 특정부분에서 확대되는 버그
 
 
 * **진행상황**
@@ -151,8 +152,34 @@
 
 
 
-* **커밋**
+* **1주차 커밋**
 ![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+
+* **2주차 커밋**
+![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+
+* **3주차 커밋**
+![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+
+* **4주차 커밋**
+![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+
+* **5주차 커밋**
+![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+
+* **6주차 커밋**
+![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+
+* **7주차 커밋**
+![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+
+* **8주차 커밋**
+![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+
+* **9주차 커밋**
+![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+
+
 
 
   
