@@ -153,31 +153,32 @@
 
 
 * **1주차 커밋**
-![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+<img width="469" alt="1주차" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/3a65dc5d-0e8e-4922-8cc3-907c31b619d0">
+
 
 * **2주차 커밋**
-![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+<img width="470" alt="2주차" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/2beb717c-ff87-4b92-8ff7-dd1fd941f42a">
 
 * **3주차 커밋**
-![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+<img width="455" alt="3주차" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/42ae82e5-5cb3-454c-b964-b166a4c15280">
 
 * **4주차 커밋**
-![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+<img width="466" alt="4주차" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/7fddb22f-dfa9-41d3-b87d-d18c96e7756c">
 
 * **5주차 커밋**
-![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+<img width="473" alt="5주차" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/a70fc56d-9f8d-41c8-bd04-d7b1792ad2a1">
 
 * **6주차 커밋**
-![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+<img width="471" alt="6주차" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/e1c3f090-1540-456f-9dbc-2c2c0ed53056">
 
 * **7주차 커밋**
-![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+<img width="469" alt="7주차" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/c7af520c-5833-441f-b128-8d50e2a36540">
 
 * **8주차 커밋**
-![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+<img width="472" alt="8주차" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/d4aefef2-05ca-4db5-a32b-784aa6f7fea2">
 
 * **9주차 커밋**
-![image](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/4e271d23-34dd-40b1-a8ac-7631f9112deb)
+<img width="472" alt="9주차" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/e332beb3-a73e-45db-af80-d78e9a498b16">
 
 
 
