@@ -178,7 +178,7 @@
 <img width="472" alt="8주차" src="https://github.com/2JongHyeok/spgpTermProject/assets/104877754/d4aefef2-05ca-4db5-a32b-784aa6f7fea2">
 
 * **9주차 커밋**
-<img width="472" alt="8주차" src=https://github.com/2JongHyeok/spgpTermProject/assets/104877754/41ceb4cf-22e5-447e-b4b7-09106b4e34f5">
+![9주차](https://github.com/2JongHyeok/spgpTermProject/assets/104877754/42c6e02a-f485-4341-baa0-60c778ed0afe)
 
 
 
